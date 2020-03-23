@@ -14,13 +14,22 @@ fn main() {
         active_counts: 100,
         active: false,
     };
-    println("printing node1");
+    let node3 = Node {
+        id: String::from("hello this is node 3"),
+        ..node1
+    };
+    println!("printing node3");
+    println!("id = {}, active_counts = {}, active = {}", node3.id, node3.active_counts, node3.active);
+    println!("printing node1");
     println!("id = {}, active_counts = {}, active = {}", node1.id, node1.active_counts, node1.active);
     println!("setting node 1");
     node1.id = String::from("new");
     println!("printing node1");
-    println!("id = {}, active_counts = {}, active = {}", node2.id, node2.active_counts, node2.active);
     println!("id = {}, active_counts = {}, active = {}", node1.id, node1.active_counts, node1.active);
+    println!("printing node2");
+    println!("id = {}, active_counts = {}, active = {}", node2.id, node2.active_counts, node2.active);
+    struct Color(i32, i32, i32);
+    struct Point(i32, i32, i32);
 }
 
 
