@@ -13,9 +13,12 @@ fn main() {
         id: s.to_string(),
         active_counts: 100,
         active: false,
-    };    
+    };
+    println("printing node1");
     println!("id = {}, active_counts = {}, active = {}", node1.id, node1.active_counts, node1.active);
+    println!("setting node 1");
     node1.id = String::from("new");
+    println!("printing node1");
     println!("id = {}, active_counts = {}, active = {}", node2.id, node2.active_counts, node2.active);
     println!("id = {}, active_counts = {}, active = {}", node1.id, node1.active_counts, node1.active);
 }
