@@ -1,3 +1,5 @@
+// explicitly opt in to make debug trait available
+#[derive(Debug)]
 struct Rectangle {
     width: i32,
     height: i32,
@@ -22,6 +24,9 @@ fn main() {
         "the area of the rectangle is {} square pixels.",
         area_struct(&rect2)
     );
+    println!("rect2 debug display 1 = {:?}", rect2);
+    println!("rect2 debug display 2 = {:#?}", rect2);
+
 }
 
 fn area(width: u32, height: u32) -> u32 {
