@@ -36,6 +36,25 @@ impl IpAddr {
     }
 }
 
+#[derive(Debug)]
+enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter,
+}
+
+impl Coin {
+    fn value_in_cents(&self) -> u8 {
+        match self {
+            Coin::Penny => 1,
+            Coin::Nickel => 5,
+            Coin::Dime => 10,
+            Coin::Quarter => 25,
+        }
+    }
+}
+
 fn main() {
     let v4 = IpAddrKindOpt::V4(Some((1, 2, 3, 4)));
     let v6 = IpAddrKindOpt::V6(Some((5, 6, 7, 8)));
@@ -59,4 +78,11 @@ fn main() {
     println!("v4_looopback is v6 {}", v4_loopback.is_v6());
     println!("v6_loopback is v4 {}", v6_loopback.is_v4());
     println!("v6_looopback is v6 {}", v6_loopback.is_v6());
+
+    println!(
+        "penny value {}, nickel value {}, dime value {}, quarter value {}", 
+        Coin::Penny.value_in_cents(), Coin::Nickel.value_in_cents(),
+        Coin::Dime.value_in_cents(), Coin::Quarter.value_in_cents(),
+    );
+
 }
