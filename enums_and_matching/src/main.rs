@@ -37,11 +37,24 @@ impl IpAddr {
 }
 
 #[derive(Debug)]
+enum Province {
+    BritishColumbia,
+    Alberta,
+    Sask,
+    Manitoba,
+    Ontario,
+    Quebec,
+    NovaScotia,
+    NewFoundLand,
+}
+
+#[derive(Debug)]
 enum Coin {
     Penny,
     Nickel,
     Dime,
     Quarter,
+    Dollar(Province),
 }
 
 impl Coin {
@@ -54,8 +67,12 @@ impl Coin {
             Coin::Nickel => 5,
             Coin::Dime => 10,
             Coin::Quarter => {
-                println!("lucky quarter");
+                println!("found a dirty quarter");
                 return 25;
+            }
+            Coin::Dollar(province) => {
+                println!("lucky dollar from province {:?}", province);
+                return 100;
             },
         }
     }
@@ -86,9 +103,10 @@ fn main() {
     println!("v6_looopback is v6 {}", v6_loopback.is_v6());
 
     println!(
-        "penny value {}, nickel value {}, dime value {}, quarter value {}", 
+        "penny value {}, nickel value {}, dime value {}, quarter value {}, dollar value {}", 
         Coin::Penny.value_in_cents(), Coin::Nickel.value_in_cents(),
         Coin::Dime.value_in_cents(), Coin::Quarter.value_in_cents(),
+        Coin::Dollar(Province::BritishColumbia).value_in_cents(),
     );
 
 }
